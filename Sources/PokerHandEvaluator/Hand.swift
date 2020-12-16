@@ -1,7 +1,3 @@
-public enum HandError: Error {
-    case containsDuplicates
-}
-
 public struct Hand {
     public let cards: [Card]
 
