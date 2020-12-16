@@ -47,5 +47,8 @@ final class HandTests: XCTestCase {
 
     static var allTests = [
         ("testLegalHand", testLegalHand),
+        ("testHandWithDuplicatesIsIllegal", testHandWithDuplicatesIsIllegal),
+        ("testHandWithTooFewCardsIsIllegal", testHandWithTooFewCardsIsIllegal),
+        ("testHandWithTooManyCardsIsIllegal", testHandWithTooManyCardsIsIllegal),
     ]
 }
