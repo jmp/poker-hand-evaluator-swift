@@ -44,11 +44,62 @@ final class HandTests: XCTestCase {
         let hand = Hand(cards)
         XCTAssertFalse(hand.isLegal)
     }
+    
+    func testEvaluateRoyalFlush() {
+        let cards = [
+            Card(.king, .hearts),
+            Card(.queen, .hearts),
+            Card(.jack, .hearts),
+            Card(.ten, .hearts),
+            Card(.ace, .hearts),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(1, hand.value)
+    }
+    
+    func testEvaluateSevenHigh() {
+        let cards = [
+            Card(.seven, .hearts),
+            Card(.six, .clubs),
+            Card(.five, .diamonds),
+            Card(.four, .spades),
+            Card(.trey, .hearts),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(1607, hand.value)
+    }
+    
+    func testEvaluatePair() {
+        let cards = [
+            Card(.deuce, .hearts),
+            Card(.deuce, .diamonds),
+            Card(.trey, .clubs),
+            Card(.four, .clubs),
+            Card(.five, .clubs),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(6185, hand.value)
+    }
+    
+    func testEvaluateWorstHand() {
+        let cards = [
+            Card(.seven, .hearts),
+            Card(.five, .diamonds),
+            Card(.four, .clubs),
+            Card(.trey, .spades),
+            Card(.deuce, .hearts),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(7462, hand.value)
+    }
 
     static var allTests = [
         ("testLegalHand", testLegalHand),
         ("testHandWithDuplicatesIsIllegal", testHandWithDuplicatesIsIllegal),
         ("testHandWithTooFewCardsIsIllegal", testHandWithTooFewCardsIsIllegal),
         ("testHandWithTooManyCardsIsIllegal", testHandWithTooManyCardsIsIllegal),
+        ("testEvaluateRoyalFlush", testEvaluateRoyalFlush),
+        ("testEvaluateSevenHigh", testEvaluateSevenHigh),
+        ("testEvaluateWorstHand", testEvaluateWorstHand),
     ]
 }
