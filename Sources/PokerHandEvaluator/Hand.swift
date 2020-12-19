@@ -14,15 +14,16 @@ public struct Hand: Equatable {
         guard containsCorrectNumberOfCards else { return 0 }
         let cardValues = cards.map(\.value)
         let index = cardValues.reduce(0, |) >> 16
-        if cardValues.reduce(0xF000, &) != 0 {
+        let isFlush = cardValues.reduce(0xF000, &) != 0
+        if isFlush {
             return flushes[index]
         }
-        if uniques[index] != 0 {
-            return uniques[index]
+        let unique = uniques[index]
+        if unique != 0 {
+            return unique
         }
         let product = cardValues.map { $0 & 0xFF }.reduce(1, *)
-        let tmp = hash(product)
-        return values[tmp]
+        return values[hash(product)]
     }
     
     private var containsNoDuplicates: Bool {
