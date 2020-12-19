@@ -13,21 +13,9 @@ public enum Rank: Int, CaseIterable, CustomStringConvertible {
     case king
     case ace
 
+    private static let descriptions = "23456789TJQKA".map { String($0) }
+
     public var description: String {
-        switch self {
-        case .deuce: return "2"
-        case .trey: return "3"
-        case .four: return "4"
-        case .five: return "5"
-        case .six: return "6"
-        case .seven: return "7"
-        case .eight: return "8"
-        case .nine: return "9"
-        case .ten: return "T"
-        case .jack: return "J"
-        case .queen: return "Q"
-        case .king: return "K"
-        case .ace: return "A"
-        }
+        Rank.descriptions[rawValue]
     }
 }
