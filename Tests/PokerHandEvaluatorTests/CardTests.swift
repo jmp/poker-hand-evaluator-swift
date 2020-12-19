@@ -2,6 +2,18 @@ import XCTest
 import PokerHandEvaluator
 
 final class CardTests: XCTestCase {
+    func testEquality() {
+        let card1 = Card(.five, .spades)
+        let card2 = Card(.five, .spades)
+        XCTAssertEqual(card1, card2)
+    }
+    
+    func testInequality() {
+        let card1 = Card(.five, .spades)
+        let card2 = Card(.five, .hearts)
+        XCTAssertNotEqual(card1, card2)
+    }
+
     func testRank() {
         let card = Card(.king, .diamonds)
         XCTAssertEqual(.king, card.rank)
@@ -18,6 +30,8 @@ final class CardTests: XCTestCase {
     }
 
     static var allTests = [
+        ("testEquality", testEquality),
+        ("testInequality", testInequality),
         ("testRank", testRank),
         ("testSuit", testSuit),
         ("testValue", testValue),
