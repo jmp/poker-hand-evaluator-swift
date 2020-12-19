@@ -1,4 +1,4 @@
-public struct Card: Hashable, CustomStringConvertible {
+public struct Card: Hashable {
     public let rank: Rank
     public let suit: Suit
     public let value: Int
@@ -8,7 +8,9 @@ public struct Card: Hashable, CustomStringConvertible {
         self.suit = suit
         self.value = calculateValue(rank, suit)
     }
-    
+}
+
+extension Card: CustomStringConvertible {
     public var description: String {
         rank.description + suit.description
     }
