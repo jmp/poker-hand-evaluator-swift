@@ -1,4 +1,4 @@
-public struct Hand: Equatable, CustomStringConvertible {
+public struct Hand: Equatable {
     public let cards: [Card]
 
     public init(_ cards: [Card]) {
@@ -32,7 +32,9 @@ public struct Hand: Equatable, CustomStringConvertible {
     private var containsCorrectNumberOfCards: Bool {
         cards.count == 5
     }
-    
+}
+
+extension Hand: CustomStringConvertible {
     public var description: String {
         cards.map(\.description).joined(separator: " ")
     }

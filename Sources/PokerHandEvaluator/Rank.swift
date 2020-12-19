@@ -1,4 +1,4 @@
-public enum Rank: Int, CaseIterable, CustomStringConvertible {
+public enum Rank: Int, CaseIterable {
     case deuce
     case trey
     case four
@@ -12,7 +12,9 @@ public enum Rank: Int, CaseIterable, CustomStringConvertible {
     case queen
     case king
     case ace
+}
 
+extension Rank: CustomStringConvertible {
     private static let descriptions = "23456789TJQKA".map { String($0) }
 
     public var description: String {
