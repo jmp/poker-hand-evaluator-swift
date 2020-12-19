@@ -1,4 +1,4 @@
-public struct Hand {
+public struct Hand: Equatable {
     public let cards: [Card]
 
     public init(_ cards: [Card]) {

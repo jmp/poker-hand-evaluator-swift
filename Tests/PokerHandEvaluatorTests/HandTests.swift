@@ -2,6 +2,42 @@ import XCTest
 import PokerHandEvaluator
 
 final class HandTests: XCTestCase {
+    func testEquality() {
+        let hand1 = Hand([
+            Card(.deuce, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        let hand2 = Hand([
+            Card(.deuce, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        XCTAssertEqual(hand1, hand2)
+    }
+    
+    func testInequality() {
+        let hand1 = Hand([
+            Card(.deuce, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        let hand2 = Hand([
+            Card(.ace, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        XCTAssertNotEqual(hand1, hand2)
+    }
+
     func testLegalHand() {
         let cards = [
             Card(.king, .diamonds),
@@ -94,6 +130,8 @@ final class HandTests: XCTestCase {
     }
 
     static var allTests = [
+        ("testEquality", testEquality),
+        ("testInequality", testInequality),
         ("testLegalHand", testLegalHand),
         ("testHandWithDuplicatesIsIllegal", testHandWithDuplicatesIsIllegal),
         ("testHandWithTooFewCardsIsIllegal", testHandWithTooFewCardsIsIllegal),
