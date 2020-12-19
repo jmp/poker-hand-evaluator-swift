@@ -18,12 +18,26 @@ Creating hands:
         Card(.ace, .hearts),
     ])
 
+Printing suits, ranks, cards, or hands:
+
+    print(Suit.hearts) // ♠
+    print(Rank.ace) // A
+    print(Card(.ace, .hearts)) // A♠
+    print(Hand([
+        Card(.deuce, .hearts),
+        Card(.four, .clubs),
+        Card(.jack, .diamonds),
+        Card(.king, .spades),
+        Card(.ace, .hearts),
+    ])) // 2❤ 4♣ J♦ K♠ A❤
+
 Evaluating hands:
 
     hand.value
 
 This gives the value of the hand as an `Int` between 1 and 7462.
 The lower the value, the more valuable the hand.
+The value of illegal hands is 0.
 
 ## History
 
