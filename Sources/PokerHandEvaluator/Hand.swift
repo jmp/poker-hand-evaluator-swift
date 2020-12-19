@@ -2,7 +2,7 @@ public struct Hand: Equatable {
     public let cards: [Card]
 
     public init(_ cards: [Card]) {
-        self.cards = cards
+        self.cards = cards.sorted { $0.value < $1.value }
     }
 
     public var isLegal: Bool {

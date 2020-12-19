@@ -20,6 +20,24 @@ final class HandTests: XCTestCase {
         XCTAssertEqual(hand1, hand2)
     }
     
+    func testEqualityIgnoresOrder() {
+        let hand1 = Hand([
+            Card(.deuce, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        let hand2 = Hand([
+            Card(.five, .spades),
+            Card(.six, .hearts),
+            Card(.trey, .diamonds),
+            Card(.deuce, .hearts),
+            Card(.four, .clubs),
+        ])
+        XCTAssertEqual(hand1, hand2)
+    }
+    
     func testInequality() {
         let hand1 = Hand([
             Card(.deuce, .hearts),
@@ -34,6 +52,24 @@ final class HandTests: XCTestCase {
             Card(.four, .clubs),
             Card(.five, .spades),
             Card(.six, .hearts),
+        ])
+        XCTAssertNotEqual(hand1, hand2)
+    }
+    
+    func testInequalityIgnoresOrder() {
+        let hand1 = Hand([
+            Card(.deuce, .hearts),
+            Card(.trey, .diamonds),
+            Card(.four, .clubs),
+            Card(.five, .spades),
+            Card(.six, .hearts),
+        ])
+        let hand2 = Hand([
+            Card(.six, .hearts),
+            Card(.trey, .diamonds),
+            Card(.ace, .hearts),
+            Card(.five, .spades),
+            Card(.four, .clubs),
         ])
         XCTAssertNotEqual(hand1, hand2)
     }
@@ -131,7 +167,9 @@ final class HandTests: XCTestCase {
 
     static var allTests = [
         ("testEquality", testEquality),
+        ("testEqualityIgnoresOrder", testEqualityIgnoresOrder),
         ("testInequality", testInequality),
+        ("testInequalityIgnoresOrder", testInequalityIgnoresOrder),
         ("testLegalHand", testLegalHand),
         ("testHandWithDuplicatesIsIllegal", testHandWithDuplicatesIsIllegal),
         ("testHandWithTooFewCardsIsIllegal", testHandWithTooFewCardsIsIllegal),
