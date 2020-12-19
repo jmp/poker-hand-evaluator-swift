@@ -149,22 +149,3 @@ final class CardTests: XCTestCase {
         ("testDescription", testDescription),
     ]
 }
-
-extension Card {
-    var binaryDescription: String {
-        var binaryString = ""
-        var internalNumber = value
-        var counter = 0
-
-        for _ in (1...32) {
-            binaryString.insert(contentsOf: "\(internalNumber & 1)", at: binaryString.startIndex)
-            internalNumber >>= 1
-            counter += 1
-            if counter % 4 == 0 {
-                binaryString.insert(contentsOf: "", at: binaryString.startIndex)
-            }
-        }
-
-        return "0b" + binaryString
-    }
-}
