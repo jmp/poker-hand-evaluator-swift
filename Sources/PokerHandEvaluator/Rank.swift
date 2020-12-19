@@ -1,4 +1,4 @@
-public enum Rank: Int {
+public enum Rank: Int, CaseIterable, CustomStringConvertible {
     case deuce
     case trey
     case four
@@ -12,4 +12,22 @@ public enum Rank: Int {
     case queen
     case king
     case ace
+
+    public var description: String {
+        switch self {
+        case .deuce: return "2"
+        case .trey: return "3"
+        case .four: return "4"
+        case .five: return "5"
+        case .six: return "6"
+        case .seven: return "7"
+        case .eight: return "8"
+        case .nine: return "9"
+        case .ten: return "T"
+        case .jack: return "J"
+        case .queen: return "Q"
+        case .king: return "K"
+        case .ace: return "A"
+        }
+    }
 }
