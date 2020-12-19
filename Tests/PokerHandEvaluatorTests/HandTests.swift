@@ -164,6 +164,17 @@ final class HandTests: XCTestCase {
         let hand = Hand(cards)
         XCTAssertEqual(7462, hand.value)
     }
+    
+    func testDescription() {
+        let hand = Hand([
+            Card(.deuce, .hearts),
+            Card(.four, .clubs),
+            Card(.jack, .diamonds),
+            Card(.king, .spades),
+            Card(.ace, .hearts),
+        ])
+        XCTAssertEqual("2❤ 4♣ J♦ K♠ A❤", hand.description)
+    }
 
     static var allTests = [
         ("testEquality", testEquality),
@@ -177,5 +188,6 @@ final class HandTests: XCTestCase {
         ("testEvaluateRoyalFlush", testEvaluateRoyalFlush),
         ("testEvaluateSevenHigh", testEvaluateSevenHigh),
         ("testEvaluateWorstHand", testEvaluateWorstHand),
+        ("testDescription", testDescription),
     ]
 }
