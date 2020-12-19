@@ -165,6 +165,30 @@ final class HandTests: XCTestCase {
         XCTAssertEqual(7462, hand.value)
     }
     
+    func testEvaluateEmptyHand() {
+        let hand = Hand([])
+        XCTAssertEqual(0, hand.value)
+    }
+    
+    func testEvaluateIncompleteHand() {
+        let hand = Hand([
+            Card(.ace, .hearts),
+        ])
+        XCTAssertEqual(0, hand.value)
+    }
+    
+    func testEvaluateHandWithTooManyCards() {
+        let hand = Hand([
+            Card(.ace, .hearts),
+            Card(.king, .hearts),
+            Card(.queen, .hearts),
+            Card(.jack, .hearts),
+            Card(.ten, .hearts),
+            Card(.deuce, .hearts),
+        ])
+        XCTAssertEqual(0, hand.value)
+    }
+
     func testDescription() {
         let hand = Hand([
             Card(.deuce, .hearts),
@@ -188,6 +212,9 @@ final class HandTests: XCTestCase {
         ("testEvaluateRoyalFlush", testEvaluateRoyalFlush),
         ("testEvaluateSevenHigh", testEvaluateSevenHigh),
         ("testEvaluateWorstHand", testEvaluateWorstHand),
+        ("testEvaluateEmptyHand", testEvaluateEmptyHand),
+        ("testEvaluateIncompleteHand", testEvaluateIncompleteHand),
+        ("testEvaluateHandWithTooManyCards", testEvaluateHandWithTooManyCards),
         ("testDescription", testDescription),
     ]
 }

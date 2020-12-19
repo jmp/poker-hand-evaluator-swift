@@ -11,6 +11,7 @@ public struct Hand: Equatable {
     }
     
     public var value: Int {
+        guard containsCorrectNumberOfCards else { return 0 }
         let cardValues = cards.map(\.value)
         let index = cardValues.reduce(0, |) >> 16
         if cardValues.reduce(0xF000, &) != 0 {
