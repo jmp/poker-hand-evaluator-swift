@@ -23,7 +23,7 @@ public struct Hand: Equatable {
             return unique
         }
         let product = cardValues.map { $0 & 0xFF }.reduce(1, *)
-        return values[hash(product)]
+        return values[Int(hash(UInt32(product)))]
     }
     
     private var containsNoDuplicates: Bool {
@@ -42,12 +42,12 @@ extension Hand: CustomStringConvertible {
     }
 }
 
-private func hash(_ key: Int) -> Int {
+private func hash(_ key: UInt32) -> UInt32 {
     var u = UInt32(key)
     u &+= 0xE91AAA35
     u ^= u >> 16
     u &+= u << 8
     u ^= u >> 4
-    let r = Int(u)
-    return ((r + (r << 2)) >> 19) ^ adjust[(r >> 8) & 0x1FF]
+    let r = UInt32(u)
+    return ((r &+ (r << 2)) >> 19) ^ adjust[(Int(r) >> 8) & 0x1FF]
 }

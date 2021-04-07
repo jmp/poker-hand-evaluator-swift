@@ -152,6 +152,30 @@ final class HandTests: XCTestCase {
         let hand = Hand(cards)
         XCTAssertEqual(6185, hand.value)
     }
+
+    func testEvaluatePairOfAces() {
+        let cards = [
+            Card(.six, .diamonds),
+            Card(.seven, .diamonds),
+            Card(.eight, .diamonds),
+            Card(.ace, .hearts),
+            Card(.ace, .spades),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(3511, hand.value)
+    }
+
+    func testEvaluatePairOfKings() {
+        let cards = [
+            Card(.six, .diamonds),
+            Card(.seven, .diamonds),
+            Card(.eight, .diamonds),
+            Card(.king, .hearts),
+            Card(.king, .spades),
+        ]
+        let hand = Hand(cards)
+        XCTAssertEqual(3731, hand.value)
+    }
     
     func testEvaluateWorstHand() {
         let cards = [
@@ -211,6 +235,9 @@ final class HandTests: XCTestCase {
         ("testHandWithTooManyCardsIsIllegal", testHandWithTooManyCardsIsIllegal),
         ("testEvaluateRoyalFlush", testEvaluateRoyalFlush),
         ("testEvaluateSevenHigh", testEvaluateSevenHigh),
+        ("testEvaluatePair", testEvaluatePair),
+        ("testEvaluatePairOfAces", testEvaluatePairOfAces),
+        ("testEvaluatePairOfKings", testEvaluatePairOfKings),
         ("testEvaluateWorstHand", testEvaluateWorstHand),
         ("testEvaluateEmptyHand", testEvaluateEmptyHand),
         ("testEvaluateIncompleteHand", testEvaluateIncompleteHand),
