@@ -1,4 +1,7 @@
 # Poker hand evaluator in Swift
+![Lint status](https://github.com/jmp/poker-hand-evaluator-swift/workflows/lint/badge.svg)
+![Tests status](https://github.com/jmp/poker-hand-evaluator-swift/workflows/tests/badge.svg)
+[![codecov](https://codecov.io/gh/jmp/poker-hand-evaluator-swift/branch/master/graph/badge.svg?token=P6HAB7OM3L)](https://codecov.io/gh/jmp/poker-hand-evaluator-swift)
 
 A small Swift package for evaluating 5-card poker hands.
 
