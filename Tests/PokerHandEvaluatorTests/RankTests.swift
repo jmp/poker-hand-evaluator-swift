@@ -17,8 +17,4 @@ final class RankTests: XCTestCase {
         XCTAssertEqual("K", Rank.king.description)
         XCTAssertEqual("A", Rank.ace.description)
     }
-
-    static var allTests = [
-        ("testDescription", testDescription),
-    ]
 }

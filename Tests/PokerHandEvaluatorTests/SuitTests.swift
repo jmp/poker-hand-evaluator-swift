@@ -8,8 +8,4 @@ final class SuitTests: XCTestCase {
         XCTAssertEqual("♦", Suit.diamonds.description)
         XCTAssertEqual("♣", Suit.clubs.description)
     }
-
-    static var allTests = [
-        ("testDescription", testDescription),
-    ]
 }

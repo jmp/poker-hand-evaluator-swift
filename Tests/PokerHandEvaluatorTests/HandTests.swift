@@ -223,25 +223,4 @@ final class HandTests: XCTestCase {
         ])
         XCTAssertEqual("2❤ 4♣ J♦ K♠ A❤", hand.description)
     }
-
-    static var allTests = [
-        ("testEquality", testEquality),
-        ("testEqualityIgnoresOrder", testEqualityIgnoresOrder),
-        ("testInequality", testInequality),
-        ("testInequalityIgnoresOrder", testInequalityIgnoresOrder),
-        ("testLegalHand", testLegalHand),
-        ("testHandWithDuplicatesIsIllegal", testHandWithDuplicatesIsIllegal),
-        ("testHandWithTooFewCardsIsIllegal", testHandWithTooFewCardsIsIllegal),
-        ("testHandWithTooManyCardsIsIllegal", testHandWithTooManyCardsIsIllegal),
-        ("testEvaluateRoyalFlush", testEvaluateRoyalFlush),
-        ("testEvaluateSevenHigh", testEvaluateSevenHigh),
-        ("testEvaluatePair", testEvaluatePair),
-        ("testEvaluatePairOfAces", testEvaluatePairOfAces),
-        ("testEvaluatePairOfKings", testEvaluatePairOfKings),
-        ("testEvaluateWorstHand", testEvaluateWorstHand),
-        ("testEvaluateEmptyHand", testEvaluateEmptyHand),
-        ("testEvaluateIncompleteHand", testEvaluateIncompleteHand),
-        ("testEvaluateHandWithTooManyCards", testEvaluateHandWithTooManyCards),
-        ("testDescription", testDescription),
-    ]
 }

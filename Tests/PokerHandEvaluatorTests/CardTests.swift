@@ -139,13 +139,4 @@ final class CardTests: XCTestCase {
         XCTAssertEqual("K♠", Card(.king, .spades).description)
         XCTAssertEqual("A♠", Card(.ace, .spades).description)
     }
-
-    static var allTests = [
-        ("testEquality", testEquality),
-        ("testInequality", testInequality),
-        ("testRank", testRank),
-        ("testSuit", testSuit),
-        ("testValue", testValue),
-        ("testDescription", testDescription),
-    ]
 }
