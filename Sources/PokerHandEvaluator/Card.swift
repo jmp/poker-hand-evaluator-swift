@@ -2,7 +2,7 @@ public struct Card: Hashable {
     public let rank: Rank
     public let suit: Suit
     public let value: Int
-    
+
     public init(_ rank: Rank, _ suit: Suit) {
         self.rank = rank
         self.suit = suit

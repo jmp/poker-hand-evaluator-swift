@@ -7,7 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "PokerHandEvaluator",
-            targets: ["PokerHandEvaluator"]),
+            targets: ["PokerHandEvaluator"])
     ],
     dependencies: [],
     targets: [
@@ -16,6 +16,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "PokerHandEvaluatorTests",
-            dependencies: ["PokerHandEvaluator"]),
+            dependencies: ["PokerHandEvaluator"])
     ]
 )

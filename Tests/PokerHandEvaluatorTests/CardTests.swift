@@ -7,7 +7,7 @@ final class CardTests: XCTestCase {
         let card2 = Card(.five, .spades)
         XCTAssertEqual(card1, card2)
     }
-    
+
     func testInequality() {
         let card1 = Card(.five, .spades)
         let card2 = Card(.five, .hearts)
@@ -18,12 +18,13 @@ final class CardTests: XCTestCase {
         let card = Card(.king, .diamonds)
         XCTAssertEqual(.king, card.rank)
     }
-    
+
     func testSuit() {
         let card = Card(.king, .hearts)
         XCTAssertEqual(.hearts, card.suit)
     }
-    
+
+    // swiftlint:disable:next function_body_length
     func testValue() {
         XCTAssertEqual(0b00000000000000011000000000000010, Card(.deuce, .clubs).value)
         XCTAssertEqual(0b00000000000000101000000100000011, Card(.trey, .clubs).value)
@@ -81,7 +82,8 @@ final class CardTests: XCTestCase {
         XCTAssertEqual(0b00001000000000000001101100100101, Card(.king, .spades).value)
         XCTAssertEqual(0b00010000000000000001110000101001, Card(.ace, .spades).value)
     }
-    
+
+    // swiftlint:disable:next function_body_length
     func testDescription() {
         XCTAssertEqual("2♣", Card(.deuce, .clubs).description)
         XCTAssertEqual("3♣", Card(.trey, .clubs).description)
@@ -96,7 +98,7 @@ final class CardTests: XCTestCase {
         XCTAssertEqual("Q♣", Card(.queen, .clubs).description)
         XCTAssertEqual("K♣", Card(.king, .clubs).description)
         XCTAssertEqual("A♣", Card(.ace, .clubs).description)
-        
+
         XCTAssertEqual("2♦", Card(.deuce, .diamonds).description)
         XCTAssertEqual("3♦", Card(.trey, .diamonds).description)
         XCTAssertEqual("4♦", Card(.four, .diamonds).description)
@@ -110,7 +112,7 @@ final class CardTests: XCTestCase {
         XCTAssertEqual("Q♦", Card(.queen, .diamonds).description)
         XCTAssertEqual("K♦", Card(.king, .diamonds).description)
         XCTAssertEqual("A♦", Card(.ace, .diamonds).description)
-        
+
         XCTAssertEqual("2❤", Card(.deuce, .hearts).description)
         XCTAssertEqual("3❤", Card(.trey, .hearts).description)
         XCTAssertEqual("4❤", Card(.four, .hearts).description)
@@ -124,7 +126,7 @@ final class CardTests: XCTestCase {
         XCTAssertEqual("Q❤", Card(.queen, .hearts).description)
         XCTAssertEqual("K❤", Card(.king, .hearts).description)
         XCTAssertEqual("A❤", Card(.ace, .hearts).description)
-        
+
         XCTAssertEqual("2♠", Card(.deuce, .spades).description)
         XCTAssertEqual("3♠", Card(.trey, .spades).description)
         XCTAssertEqual("4♠", Card(.four, .spades).description)
