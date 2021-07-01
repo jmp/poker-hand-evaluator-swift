@@ -2,7 +2,7 @@ public struct Hand: Equatable {
     public let cards: [Card]
 
     public init(_ cards: [Card]) {
-        self.cards = cards.sorted { $0.value < $1.value }
+        self.cards = cards.sorted { $0.bitPattern < $1.bitPattern }
     }
 
     public var isLegal: Bool {
@@ -12,7 +12,7 @@ public struct Hand: Equatable {
 
     public var value: Int {
         guard containsCorrectNumberOfCards else { return 0 }
-        let cardValues = cards.map(\.value)
+        let cardValues = cards.map(\.bitPattern)
         let index = cardValues.reduce(0, |) >> 16
         let isFlush = cardValues.reduce(0xF000, &) != 0
         if isFlush {

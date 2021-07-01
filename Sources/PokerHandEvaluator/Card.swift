@@ -1,12 +1,13 @@
 public struct Card: Hashable {
     public let rank: Rank
     public let suit: Suit
-    public let value: Int
+
+    internal let bitPattern: Int
 
     public init(_ rank: Rank, _ suit: Suit) {
         self.rank = rank
         self.suit = suit
-        self.value = calculateValue(rank, suit)
+        self.bitPattern = calculateValue(rank, suit)
     }
 }
 
