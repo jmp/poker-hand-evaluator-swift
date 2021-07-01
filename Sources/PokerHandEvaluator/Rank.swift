@@ -14,6 +14,12 @@ public enum Rank: Int, CaseIterable {
     case ace
 }
 
+extension Rank: Comparable {
+    public static func < (lhs: Rank, rhs: Rank) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
+
 extension Rank: CustomStringConvertible {
     private static let descriptions = "23456789TJQKA".map { String($0) }
 

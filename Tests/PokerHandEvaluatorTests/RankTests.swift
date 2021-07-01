@@ -17,4 +17,9 @@ final class RankTests: XCTestCase {
         XCTAssertEqual("K", Rank.king.description)
         XCTAssertEqual("A", Rank.ace.description)
     }
+
+    func testComparison() {
+        XCTAssertLessThan(Rank.deuce, Rank.trey)
+        XCTAssertLessThan(Rank.deuce, Rank.ace)
+    }
 }

@@ -24,6 +24,12 @@ final class CardTests: XCTestCase {
         XCTAssertEqual(.hearts, card.suit)
     }
 
+    func testComparison() {
+        let deuce = Card(.deuce, .spades)
+        let trey = Card(.trey, .hearts)
+        XCTAssertLessThan(deuce, trey)
+    }
+
     func testDescriptionForClubs() {
         XCTAssertEqual("2♣", Card(.deuce, .clubs).description)
         XCTAssertEqual("3♣", Card(.trey, .clubs).description)
