@@ -13,7 +13,7 @@ public struct Hand: Equatable {
     public var value: Int {
         guard containsCorrectNumberOfCards else { return 0 }
         let cardValues = cards.map(\.bitPattern)
-        let index = cardValues.reduce(0, |) >> 16
+        let index = Int(cardValues.reduce(0, |) >> 16)
         let isFlush = cardValues.reduce(0xF000, &) != 0
         if isFlush {
             return flushes[index]
